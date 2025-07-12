@@ -1,0 +1,2112 @@
+[
+    {
+      "question_text": "Evaluate the region bounded by z = 2*(x^2) + 2*(y^2) - 7 and z = 1 .",
+      "equations": [
+        "z = 2*(x^2) + 2*(y^2) - 7",
+        "z = 1"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "2*(r^2) - 7",
+            "upper": "1"
+          }
+        },
+        "integrand": "4*(r*cos(theta))*(r*sin(theta))"
+      },
+      "volume": "0"
+    },
+    {
+      "question_text": "Evaluate the region between two cylinders x^2 + z^2 = 4 and x^2 + z^2 = 9 with 1 <= y <= 5 and z <= 0 .",
+      "equations": [
+        "x^2 + z^2 = 4",
+        "x^2 + z^2 = 9",
+        "1 <= y <= 5",
+        "z <= 0"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "y"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "2",
+            "upper": "3"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "y": {
+            "lower": "1",
+            "upper": "5"
+          }
+        },
+        "integrand": "r*(e^(-r^2))"
+      },
+      "volume": "0.1143"
+    },
+    {
+      "question_text": "Evaluate the region between the two planes x + y + z = 2 and x = 0 and inside the cylinder y^2 + z^2 = 1 ",
+      "equations": [
+        "x + y + z = 2",
+        "x = 0",
+        "y^2 + z^2 = 1"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "x"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "x": {
+            "lower": "0",
+            "upper": "2 - (r*cos(theta)) - (r*sin(theta))"
+          }
+        },
+        "integrand": "r^2 * (cos(theta))"
+      },
+      "volume": "-pi / 4"
+    },
+    {
+      "question_text": "Use a triple integral to determine the volume of the region below z = 6 - x , above z = -sqrt(4*x^2 + 4*y^2) inside the cylinder x^2 + y^2 = 3 with x <= 0 ",
+      "equations": [
+        "z = 6 - x",
+        "z = -sqrt(4*x^2 + 4*y^2)",
+        " x^2 + y^2 = 3",
+        "x <= 0"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "sqrt(3)"
+          },
+          "theta": {
+            "lower": "pi/2",
+            "upper": "3*pi/2"
+          },
+          "z": {
+            "lower": "-2*r",
+            "upper": "6 - r*cos(theta)"
+          }
+        },
+        "integrand": "r"
+      },
+      "volume": "42.6212"
+    },
+    {
+      "question_text": "Evaluate the following integral 2*x - 3*y by first converting to an integral in cylindrical coordinates. ",
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "sqrt(5)"
+          },
+          "theta": {
+            "lower": "3*pi/2",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "r^2 - 11",
+            "upper": "9 - 3*r^2"
+          }
+        },
+        "integrand": "r^2(2*cos(theta) - 3*sin(theta))"
+      },
+      "volume": "(200/3)*sqrt(5)"
+    },
+    {
+      "question_text": "Evaluate the region portion of x^2 + y^2 + z^2 = 16 with z >= 0. ",
+      "equations": [
+        "x^2 + y^2 + z^2 = 16",
+        "z >= 0"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "phi": {
+            "lower": "0",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "rho": {
+            "lower": "0",
+            "upper": "4"
+          }
+        },
+        "integrand": "10*(rho^4)*((sin(phi))^2)*(cos(phi))(cos(theta)) + 3*((rho)^2)*(sin(phi)) "
+      },
+      "volume": "128*pi"
+    },
+    {
+      "question_text": "Evaluate the region portion of x^2 + y^2 + z^2 = 4 with y >= 0. ",
+      "equations": [
+        "x^2 + y^2 + z^2 = 4",
+        "y >= 0"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "phi": {
+            "lower": "0",
+            "upper": "pi"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "pi"
+          },
+          "rho": {
+            "lower": "0",
+            "upper": "2"
+          }
+        },
+        "integrand": "((rho)^4)*((sin(phi))^3)"
+      },
+      "volume": "(128*pi)/15"
+    },
+    {
+      "question_text": "Evaluate the region inside both x^2 + y^2 + z^2 = 1 with z = sqrt( x^2 + y^2 ). ",
+      "equations": [
+        "x^2 + y^2 + z^2 = 1",
+        "z = sqrt( x^2 + y^2 )"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "phi": {
+            "lower": "0",
+            "upper": "pi/4"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "rho": {
+            "lower": "0",
+            "upper": "1"
+          }
+        },
+        "integrand": "3((rho)^2)*(cos(phi))*(sin(phi))"
+      },
+      "volume": "(3*pi)/8"
+    },
+    {
+      "question_text": "Evaluate the region inside both x^2 + y^2 + z^2 = 36 with z = -sqrt( 3*(x^2) + 3*(y^2) ). ",
+      "equations": [
+        "x^2 + y^2 + z^2 = 36",
+        "z = -sqrt( 3*(x^2) + 3*(y^2) )"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "phi": {
+            "lower": "5*pi/6",
+            "upper": "pi"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "rho": {
+            "lower": "0",
+            "upper": "6"
+          }
+        },
+        "integrand": "((rho)^4)*((sin(phi))^3)*((cos(theta)^2)"
+      },
+      "volume": "83.7799"
+    },
+    {
+      "question_text": " Evaluate the following integrand 18y by first converting to an integral in spherical coordinates. ",
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "phi": {
+            "lower": "0",
+            "upper": "0.3876"
+          },
+          "theta": {
+            "lower": "pi/2",
+            "upper": "3*pi/2"
+          },
+          "rho": {
+            "lower": "0",
+            "upper": "sqrt(7)"
+          }
+        },
+        "integrand": "18*((rho)^3)*((sin(phi))^2)*((sin(theta))"
+      },
+      "volume": 0
+    },
+    {
+      "question_text": "Evaluate volume of solid below 4-xy-z=0 and above xy plane, defined as 0<=x<=2 and 0<=y<=1. ",
+      "equations": [
+        "4-xy-z=o",
+        "z>=0",
+        "0<=x<=2",
+        "0<=y<=1"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "0",
+            "upper": "2"
+          },
+          "y": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "4-xy"
+          }
+        },
+        "integrand": "3-4x"
+      },
+      "volume": "-5.6"
+    },
+    {
+      "question_text": "Evaluate volume of region behind y=10-2z and in front of the region in the xz-plane bounded by z=2x, z=5 and x=0.",
+      "equations": [
+        "10-y-2z=0",
+        "z=2x",
+        "z=5",
+        "x=0"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "0",
+            "upper": "z/2"
+          },
+          "y": {
+            "lower": "0",
+            "upper": "10-2*z"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "5"
+          }
+        },
+        "integrand": "12y-8x"
+      },
+      "volume": "520.8"
+    },
+    {
+      "question_text": "Evaluate volume of region bounded by x=2y^2+2z^2-5 and the plane x=1.",
+      "equations": [
+        "x=2y^2+2z^2-5",
+        "x=1",
+        "r=(y^2+z^2)^(1/2)",
+        "y=r*sin(theta)",
+        "z=r*cos(theta)"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "3^(1/2)"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "x": {
+            "lower": "2y^2+2z^2-5",
+            "upper": "1"
+          }
+        },
+        "integrand": "y*z"
+      },
+      "volume": "0.0"
+    },
+    {
+      "question_text": "Evaluate volume of the region between 2x+y+z=4 and 4x+4y+2z=20,in front of yz-plane bounded by z=2y^2 and z=(4y)^1/2.",
+      "equations": [
+        "2*x+y+z=4",
+        "4*x+4*y+2*z=20",
+        "z=(2*y)^2",
+        "(4*y)^(1/2)"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "2-(1/2)*y-(1/2)*z",
+            "upper": "5-y-(1/2)*z"
+          },
+          "y": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "z": {
+            "lower": "2*y^2",
+            "upper": "(4y)^(1/2)"
+          }
+        },
+        "integrand": "15z"
+      },
+      "volume": "24.5"
+    },
+    {
+      "question_text": "Evaluate the volume of the region below z=4−xy and above the region in the xy -plane defined by 0≤x≤2, 0≤y≤1. ",
+      "equations": [
+        "z=4−x*y",
+        "0<=x<=2",
+        "0<=y<=1"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "0",
+            "upper": "2"
+          },
+          "y": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "4-x*y"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "7.0"
+    },
+    {
+      "question_text": "Evaluate the volume of the region that is below z=8−x^2−y^2 above z=−(4x^2+4y^2)^(1/2) and inside x^2+y^2=4.",
+      "equations": [
+        "z=8−x^2−y^2",
+        "z=−(4*x^2+4*y^2)^(1/2)",
+        "x^2+y^2=4",
+        "r=(x^2+y^2)^(1/2)"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "−(4*x^2+4*y^2)^(1/2)",
+            "upper": "8−x^2−y^2"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "108.9"
+    },
+    {
+      "question_text": "Evaluate the volume of the solid between the sphere rho = cos(phi) and the hemisphere and rho=2, z>=0.",
+      "equations": [
+        "rho=cos(phi)",
+        "rho=2",
+        "z>=0"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "z"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "cos(phi)",
+            "upper": "2"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "16.2"
+    },
+    {
+      "question_text": "Find volume of region enclosed by the cardioid of revolution r = 1 - cos(phi)",
+      "equations": [
+        "rho = 1 - cos(phi)"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "1 - cos(phi)"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "8.3"
+    },
+    {
+      "question_text": "Find volume of the upper portion,cut from the solid enclosed by the cardioid of revolution rho = 1 - cos(phi) by the xy plane",
+      "equations": [
+        "rho = 1 - cos(phi)",
+        "z=0"
+      ],
+      "variables": ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": { "lower": "0", "upper": "1 - cos(phi)" },
+          "phi": { "lower": "0", "upper": "pi/2" },
+          "theta": { "lower": "0", "upper": "2*pi" }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "0.52"
+    },
+    {
+      "question_text": "Evaluate volume of solid bounded below by the sphere rho = 2 cos(phi) and above by the cone z = (x^2 + y^2)^(1/2)",
+      "equations": [
+        "rho=2*cos(phi)",
+        "z=(x^2+y^2)^(1/2)"
+      ],
+      "variables": ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": { "lower": "0", "upper": "2*cos(phi)" },
+          "phi": { "lower": "pi/4", "upper": "pi/2" },
+          "theta": { "lower": "0", "upper": "2*pi" }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "1.04"
+    },
+    {
+      "question_text": "Find the volume of solid bounded below by the xy-plane, on the sides by the sphere rho = 2, and above by the cone phi = pi/3",
+      "equations": [
+        "rho = 2",
+        "phi = pi/3",
+        "z=0"
+      ],
+        "variables": ["rho", "phi", "theta"],
+        "coordinate_system": "spherical",
+        "integral_setup": {
+          "bounds": {
+            "rho": { "lower": "0", "upper": "2" },
+            "phi": { "lower": "pi/3", "upper": "pi/2" },
+            "theta": { "lower": "0", "upper": "2*pi" }
+          },
+          "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "8.37"
+    },
+    {
+      "question_text": "Find the volume of the wedge-shaped region enclosed on the side by the cylinder x = -cos y, -pi/2 <= y<= pi/2, on the top by the plane z = -2x, and below by the xy-plane.",
+      "equations": [
+        "x = -cos y",
+        "-pi/2 <= y<= pi/2",
+        "z=-2x",  
+        "z=0"
+      ],
+      "variables": ["x", "y", "z"],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": { "lower": "-cos(y)", "upper": "0" },
+          "y": { "lower": "0", "upper": "pi/2" },
+          "z": { "lower": "0", "upper": "-2*x" }
+        },
+        "integrand": "2"
+      },
+      "volume": "1.57"
+    },
+  
+    {
+      "question_text": "Find the volume of the solid that is bounded above by the cylinder z = 4 - x^2, on the sides by the cylinder x^2 + y^2 = 4, and below by the xy-plane.",
+      "equations": [
+        "z=4-x^2",
+        "x^2+y^2=4",  
+        "z=0"
+      ],
+      "variables": ["x", "y", "z"],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": { "lower": "0", "upper": "4-x^2" },
+          "y": { "lower": "0", "upper": "(4-x^2)^(1/2)" },
+          "z": { "lower": "0", "upper": "2" }
+        },
+        "integrand": "4"
+      },
+      "volume": "37.7"
+    },
+    {
+      "question_text": "Solve for the volume of the sphere rho = 2 in spherical coordinates.",
+      "equations": [
+        "rho=2"
+      ],
+      "variables": ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": { "lower": "0", "upper": "2" },
+          "phi": { "lower": "0", "upper": "pi/2" },
+          "theta": { "lower": "0", "upper": "pi/2" }
+        },
+        "integrand": "8*rho^2 * sin(phi)"
+      },
+      "volume": "16.8"
+    },
+    {
+      "question_text": "Solve for the volume of the sphere rho = 2 in cylindrical coordinates.",
+      "equations": [
+        "rho=2"
+      ],
+      "variables": ["r", "z", "theta"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": { "lower": "0", "upper": "2" },
+          "theta": { "lower": "0", "upper": "pi/2" },
+          "z": { "lower": "0", "upper": "(4-r^2)^(1/2)" }
+        },
+        "integrand": "8*r"
+      },
+      "volume": "16.8"
+    },
+    {
+      "question_text": "Solve for the volume of the sphere rho = 2 in rectangular coordinates.",
+      "equations": [
+        "rho=2"
+      ],
+      "variables": ["x", "y", "z"],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": { "lower": "0", "upper": "2" },
+          "y": { "lower": "0", "upper": "(4-x^2)^(1/2)" },
+          "z": { "lower": "0", "upper": "(4-x^2-y^2)^(1/2)" }
+        },
+        "integrand": "8"
+      },
+      "volume": "16.8"
+    },
+    {
+      "question_text": "Let D be the region in the first octant that is bounded below by the cone phi = pi/4 and above by the sphere rho = 3. Find the volume of D by cylindrical coordinates.",
+      "equations": [
+        "phi=pi/4",
+        "rho=3",  
+        "x>0",
+        "y>0",
+        "z>0"
+      ],
+      "variables": ["r", "theta", "z"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": { "lower": "0", "upper": "3/(2)^(1/2)" },
+          "theta": { "lower": "0", "upper": "pi/2" },
+          "z": { "lower": "r", "upper": "(9-r^2)^(1/2)" }
+        },
+        "integrand": "r"
+      },
+      "volume": "4.17"
+    },
+    {
+      "question_text": "Let D be the region in the first octant that is bounded below by the cone phi = pi/4 and above by the sphere rho = 3. Find the volume of D by spherical coordinates.",
+      "equations": [
+        "phi=pi/4",
+        "rho=3",  
+        "x>0",
+        "y>0",
+        "z>0"
+      ],
+      "variables": ["rho", "theta", "phi"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": { "lower": "r", "upper": "3" },
+          "theta": { "lower": "0", "upper": "pi/2" },
+          "phi": { "lower": "0", "upper": "pi/4" }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "4.17"
+    },
+    {
+      "question_text": "Find the volume of the portion of the solid cylinder x^2 + y^2 <= 1 that lies between the planes z = 0 and x + y + z = 2.",
+      "equations": [
+        "x^2+y^2<=1",
+        "z=0",
+        "x+y+z=2"
+      ],
+      "variables": ["r", "theta", "z"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": { "lower": "0", "upper": "1" },
+          "theta": { "lower": "0", "upper": "2*pi" },
+          "z": { "lower": "0", "upper": "2-r*cos(theta)-r*sin(theta)" }
+        },
+        "integrand": "r"
+      },
+      "volume": "6.3"
+    },
+    {
+      "question_text": "Find the volume of the region bounded above by the sphere x^2 + y^2 + z^2 = 2 and below by the paraboloid z = x^2 + y^2.",
+      "equations": [
+        "x^2+y^2+z^2=2",
+        "z=x^2+y^2"
+      ],
+      "variables": ["r", "theta", "z"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": { "lower": "0", "upper": "1" },
+          "theta": { "lower": "0", "upper": "pi/2" },
+          "z": { "lower": "r^2", "upper": "(2-r^2)^(1/2)" }
+        },
+        "integrand": "4*r"
+      },
+      "volume": "2.2"
+    },
+    {
+      "question_text": "Find the volume of the region bounded above by the paraboloid z = 3 - x^2 - y^2 and below by the paraboloid z = 2x^2 + 2y^2.",
+      "equations": [
+        "z=3-x^2-y^2",
+        "z=2*x^2+2*y^2"
+      ],
+      "variables": ["x", "y", "z"],
+      "coordinate_system": "rectangular",
+      "integral_setup": {
+        "bounds": {
+          "x": { "lower": "0", "upper": "1" },
+          "y": { "lower": "0", "upper": "(1-x^2)^(1/2)" },
+          "z": { "lower": "2*x^2+2*y^2", "upper": "3-x^2-y^2" }
+        },
+        "integrand": "4"
+      },
+      "volume": "4.7"
+    },
+    {
+      "question_text": " Evaluate where E is enclosed by the planes z = 0 and z = x + y + 5 and by the cylinders x^2 + y^2 = 4 and x^2 + y^2 = 9",
+          "equations" : [
+              "z = 0",
+              "z = x + y + 5",
+              "x^2 + y^2 = 4",
+              "x^2 + y^2 = 9"
+          ],
+          "variables": ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "0",
+                  "upper" : "r*(cos(theta)) + r*(sin(theta)) + 5"
+              },
+              "r" : {
+                  "lower": "2",
+                  "upper" : "3"
+              },
+              "theta" : {
+                  "lower": "0",
+                   "upper" : "2*pi"
+              }
+          },
+              "integrand": "(r^2)*(cos(theta))"
+      },
+          "volume": "65*pi/4"
+    },
+    {
+      "question_text": " Evaluate where E is the solid that lies within the cylinder x^2 + y^2 = 1 , above the plane z = 0 , and below the cone z^2 = 4*x^2 + 4*y^2 ",
+          "equations" : [
+              "x^2 + y^2 = 1",
+              "z = 0",
+              "z^2 = 4*x^2 + 4*y^2"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "0",
+                  "upper" : "2*r"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "1"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "(r^3)*((cos(theta))^2)"
+      },
+          "volume": "2*pi/5"
+    },
+    {
+      "question_text": "Find the area the solid that lies within both the cylinder x^2 + y^2 = 1 , and the sphere x^2 + y^2 + z^2 = 4 ",
+          "equations" : [
+              "x^2 + y^2 = 1",
+              "x^2 + y^2 + z^2 = 4"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "-sqrt(4 - r^2)",
+                  "upper" : "sqrt(4 - r^2)"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "1"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "r"
+      },
+          "volume": "(4*pi/3)*(8-3^(3/2))"
+    },
+    {
+      "question_text": "Find the volume the solid that is enclosed by the cone z = sqrt(x^2 + y^2) and the sphere x^2 + y^2 + z^2 = 2 ",
+          "equations" : [
+              "z = sqrt(x^2 + y^2)",
+              "x^2 + y^2 + z^2 = 2"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "r",
+                  "upper" : "sqrt(2 - r^2)"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "1"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "r"
+      },
+          "volume": "(4/3)*pi*(sqrt(2)-1)"
+    },
+    {
+      "question_text": "Find the volume the solid that lies between the paraboloid z = x^2 + y^2 and the sphere x^2 + y^2 + z^2 = 2 ",
+          "equations" : [
+              "z = x^2 + y^2",
+              "x^2 + y^2 + z^2 = 2"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "r",
+                  "upper" : "sqrt(2 - r^2)"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "1"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "r"
+      },
+          "volume": "(pi/6)*(8*sqrt(2) - 7)"
+    },
+    {
+      "question_text": "Find the volume of the region E bounded by the parabolids z = x^2 + y^2 and z = 36 - 3*x^2 - 3*y^2 ",
+          "equations" : [
+              "z = x^2 + y^2",
+              "z = 36 - 3*x^2 - 3*y^2"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "r^2",
+                  "upper" : "36 - 3*r^2"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "3"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "r"
+      },
+          "volume": "162*pi"
+    },
+    {
+      "question_text": "Find the volume of the solid cylinder r = a * cos(theta) cuts out of the sphere of radius a centered at origin ",
+          "equations" : [
+              "r = a * cos(theta)"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "-sqrt(a^2 - r^2)",
+                  "upper" : "sqrt(a^2 - r^2)"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "a*cos(theta)"
+              },
+              "theta" : {
+                  "lower": "-pi/2",
+                  "upper" : "pi/2"
+              }
+          },
+              "integrand": "r"
+      },
+          "volume": "(2*(a^3)/3)  - 8(a^3)/9"
+    },
+    {
+      "question_text": "Find the volume of the region that is inside both the sphere x^2 + y^2 + z^2 = 25 and the cylinder x^2 + y^2 = 9 ",
+          "equations" : [
+              "x^2 + y^2 + z^2 = 25",
+              "x^2 + y^2 = 9"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "-sqrt(25 - r^2)",
+                  "upper" : "sqrt(25 - r^2)"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "3"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "r"
+      },
+          "volume": "244*pi/3"
+    },
+    {
+      "question_text": "Evaluate the region above the cone x^2 + y^2 = z^2 and below the sphere x^2 + y^2 + z^2 = 4 for z >= 0 ",
+          "equations" : [
+              "x^2 + y^2 = z^2",
+              "x^2 + y^2 + z^2 = 4",
+              "z >= 0"
+          ],
+          "variables" : ["rho", "phi", "theta"],
+          "coordinate_system" : "spherical",
+          "integral_setup" : {
+          "bounds": {
+              "rho": {
+                  "lower": "0",
+                  "upper" : "2"
+              },
+              "phi" : {
+                  "lower": "0",
+                  "upper" : "pi/4"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "(rho^3)*(cos(phi))*(sin(phi))"
+      },
+          "volume": "2*pi"
+    },
+    {
+      "question_text": "A solid region lies within the cylinder x^2 + y^2 = 1 below the plane z = 4 and above the paraboloid z= 1 - x^2 - y^2 ",
+          "equations" : [
+              "x^2 + y^2 = 1",
+              "z = 4",
+              "z= 1 - x^2 - y^2"
+          ],
+          "variables" : ["z", "r", "theta"],
+          "coordinate_system" : "cylindrical",
+          "integral_setup" : {
+          "bounds": {
+              "z": {
+                  "lower": "1-r^2",
+                  "upper" : "4"
+              },
+              "r" : {
+                  "lower": "0",
+                  "upper" : "1"
+              },
+              "theta" : {
+                  "lower": "0",
+                  "upper" : "2*pi"
+              }
+          },
+              "integrand": "r^2"
+      },
+          "volume": "12*pi/5"
+    },
+    {
+      "question_text": " Evaluate the triple integral of equation (x^2 + y^2)dV, where E lies between the spheres x^2 + y^2 + z^2 = 4 and x^2 + y^2 + z^2 = 9. ",
+      "equations":["x^2 + y^2 + z^2 = 4","x^2 + y^2 + z^2 = 9"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "2",
+            "upper": "3"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "(x^2 + y^2)"
+      },
+      "volume": "1688*pi/15"
+    },
+    {
+      "question_text": " Evaluate the triple integral of equation y^2 dV, where E is the solid hemisphere x^2 + y^2 + z^2 <= 9, y>=0. ",
+      "equations":["y^2","x^2 + y^2 + z^2 <= 9","y>=0"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "3"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "pi"
+          }
+        },
+        "integrand": "y^2"
+      },
+      "volume": "162*pi/5"
+    },
+    {
+      "question_text": " Evaluate the triple integral of equation xe^x^2+y^2+z^2 dV, where E is the portion of the unit ball x^2 + y^2 + z^2 <= 1, that lies in the first octant. ",
+      "equations":["x^2 + y^2 + z^2 <= 1"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "pi/2"
+          }
+        },
+        "integrand": "xe^x^2+y^2+z^2"
+      },
+      "volume": "pi/8"
+    },
+    {
+      "question_text": " Evaluate the triple integral of equation xyz dV, where E lies between the spheres row(p) = 2 and row(p) = 4 and above the cone phi = pi/3. ",
+      "equations":["xyz","row(p) = 2","row(p) = 4","phi = pi/3"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "2",
+            "upper": "4"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/3"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "xyz"
+      },
+      "volume": "0"
+    },
+    {
+      "question_text": " Find the volume of the part of the ball rho(p) <=a that lies between the cones phi = pi/6 and phi = pi/3. ",
+      "equations":["rho(p) <=a","phi = pi/6","phi = pi/3"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "a"
+          },
+          "phi": {
+            "lower": "pi/6",
+            "upper": "pi/3"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "(((3^1/2)-1)/3)*pi*a^3"
+    },
+    {
+      "question_text": " Find the volume of the solid that lies above the cone phi = pi/3 and below the sphere rho(p) = 4 cos phi. ",
+      "equations":[" phi = pi/3","rho(p) = 4 cos phi"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "4cos(phi)"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/3"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "p^2sin(phi)"
+      },
+      "volume": "10*pi"
+    },
+    {
+      "question_text": " Find the volume of the solid that lies within the sphere x^2 + y^2 + z^2 = 4, above the xy plane, and below the cone z = (x^2 + y^2)^1/2. ",
+      "equations":["x^2 + y^2 + z^2 = 4"," z = (x^2 + y^2)^1/2"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "2"
+          },
+          "phi": {
+            "lower": "pi/4",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2sin(phi)"
+      },
+      "volume": "(8*pi(2^1/2))/3"
+    },
+    {
+      "question_text": " Find the volume of the solid that lies above the cone z = (x^2 + y^2)^1/2 and below the sphere x^2 + y^2 + z^2 = 1. ",
+      "equations":["z = (x^2 + y^2)^1/2","x^2 + y^2 + z^2 = 1"],
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/4"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "1/3*pi(2-(2)^1/2)"
+    },
+    {
+      "question_text": " Find the volume of the smaller wedge cut from a sphere of radius a by two planes that intersect along a diameter at an angle of pi/6. ",
+      "variables" : ["rho", "phi", "theta"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "a",
+            "upper": "0"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "pi/6"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "pi*(a)^3/9"
+    },
+    {
+      "question_text": "Compute the triple integral of F(x, y, z) = z over the region R in the first octant bounded by the planes y = 0, z = 0, x + y = 2, 2y + x = 6, and the cylinder y^2 + z^2 = 4",
+      "equations": [
+        "y = 0",
+        "z = 0",
+        "x + y = 2",
+        "2y + x = 6",
+        "y^2 + z^2 = 4"
+      ],
+      "variables": ["x", "y", "z"],
+      "coordinate_system": "cartesian",
+      "integral_setup": {
+        "bounds": {
+          "x": { "lower": "2 - y", "upper": "6 - 2*y" },
+          "y": { "lower": "0", "upper": "2" },
+          "z": { "lower": "0", "upper": "sqrt(4 - y^2)" }
+        },
+        "integrand": "z"
+      },
+      "volume": "8.66"
+    },
+    {
+      "question_text": "Compute the triple integral of f (r, θ, z) = r^2 over the region R bounded by the paraboloid r^2 = 9 − z and the plane z = 0",
+      "equations": [
+        "r^2 = 9 − z",
+        "z = 0"
+      ],
+      "variables": ["z", "r", "theta"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+          "bounds": {
+            "z": { "lower": "0", "upper": "9-r^2" },
+            "r": { "lower": "0", "upper": "3" },
+            "theta": { "lower": "0", "upper": "2*pi" }
+          },
+        "integrand": "r^2"
+        },
+    "volume": "381.70"
+    },
+    {
+      "question_text": "Compute the triple integral of F(rho, theta, phi) = 1/rho over the region R in the first octant bounded by the cones phi = π/4 and phi =tan^−1(2) and the sphere rho = sqrt(6).",
+      "equations": [
+        "phi = π/4",
+        "phi =tan^−1(2)",
+        "rho = sqrt(6)"
+      ],
+      "variables": ["rho", "theta", "phi"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+          "bounds": {
+            "rho": { "lower": "0", "upper": "sqrt(6)" },
+            "theta": { "lower": "0", "upper": "pi/2" },
+            "phi": { "lower": "pi/4", "upper": "tan^-1(2)" }
+          },
+        "integrand": "1/rho"
+        },
+        "volume": "1.2247"
+    },
+    {
+      "question_text": "Find the volume bounded by the paraboloid z = 2x^2 + y^2 and the cylinder z = 4 − y^2.",
+      "equations": [
+        "z = 2x^2 + y^2",
+        "z = 4 − y^2"
+      ],
+      "variables": ["x", "y", "z"],
+      "coordinate_system": "cartesian",
+      "integral_setup": {
+          "bounds": {
+            "z": { "lower": "2*x^2 + y^2", "upper": "4 - y^2" },
+            "y": { "lower": "0", "upper": "sqrt(2 - x^2)" },
+            "x": { "lower": "0", "upper": "sqrt(2)" }
+          },
+        "integrand": "1"
+        },
+        "volume": "12.56"
+    },
+    {
+      "question_text": "Find the volume within the cylinder r = 4cos(theta) bounded above by the sphere r^2 + z^2 = 16 and below by the plane z = 0.",
+      "equations": [
+        "r^2 + z^2 = 16",
+        "z <= 0"
+      ],
+      "variables": ["z", "r", "theta"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+          "bounds": {
+            "z": { "lower": "0", "upper": "sqrt(16-r^2)" },
+            "r": { "lower": "0", "upper": "4*cos(theta)" },
+            "theta": { "lower": "0", "upper": "pi" }
+          },
+        "integrand": "1"
+        },
+        "volume" : "38.57"
+    },
+    {
+      "question_text": "Find the volume cut from the cone phi = π/4 by the sphere rho = 2acos(phi).",
+      "equations": [
+        "phi = π/4",
+        "rho = 2acos(phi)"
+      ],
+      "variables": ["rho", "theta", "phi"],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+          "bounds": {
+            "phi": { "lower": "0", "upper": "2*a*cos(phi)" },
+            "rho": { "lower": "0", "upper": "pi/4" },
+            "theta": { "lower": "0", "upper": "pi/2" }
+          },
+        "integrand": "1"
+        },
+        "volume": "pi*a^3"
+    },
+    {
+      "question_text": "Find the volume of material cut from the solid sphere r^2 + z^2 <= 9 by the cylinder r = 3sin(theta)",
+      "equations": [
+        "r^2 + z^2 <= 9",
+        "r = 3sin(theta)"
+      ],
+      "variables": ["z", "r", "theta"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+          "bounds": {
+            "z": { "lower": "0", "upper": "sqrt(9-r^2)" },
+            "r": { "lower": "0", "upper": "3*sin(theta)" },
+            "theta": { "lower": "0", "upper": "pi" }
+          },
+        "integrand": "1"
+        },
+        "volume": "28.27"
+    },
+    {
+      "question_text": "Find the volume of the region enclosed by the surfaces z = x^2 + y^2 and z = (x^2 + y^2 + 1)/2",
+      "equations": [
+        "z = x^2 + y^2",
+        "z = (x^2 + y^2 + 1)/2"
+      ],
+      "variables": ["z", "r", "theta"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+          "bounds": {
+            "z": { "lower": "r^2", "upper": "(r^2+1)/2" },
+            "r": { "lower": "0", "upper": "1" },
+            "theta": { "lower": "0", "upper": "pi/2" }
+          },
+        "integrand": "1"
+        },
+        "volume": "0.785"
+    },
+    {
+      "question_text": "Find the volume of the region in the first octant that lies between the cylinders r = 1 and r = 2 and that is bounded below by the xy-plane and above by the surface z = xy.",
+      "equations": [
+        "z = xy",
+        "r = 1",
+        "r = 1"
+      ],
+      "variables": ["z", "r", "theta"],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+          "bounds": {
+            "z": { "lower": "0", "upper": "r^2 * sin(theta) * cos(theta)" },
+            "r": { "lower": "1", "upper": "2" },
+            "theta": { "lower": "0", "upper": "pi/2" }
+          },
+        "integrand": "1"
+        },
+        "volume": "1.875"
+    },
+    {
+      "question_text": "Find the volume of the region cut from the cylinder x^2 + y^2 = 4 by the plane z = 0 and the plane x + z = 3.",
+      "equations": [
+        "x^2 + y^2 = 4",
+        "z = 0",
+        "x + z = 3"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "cartesian",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "-2",
+            "upper": "2"
+          },
+          "y": {
+            "lower": "-sqrt(4 - x^2)",
+            "upper": "sqrt(4 - x^2)"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "3 - x"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "12 * pi"
+    },
+    {
+      "question_text": "Find the volume of the region between the planes x + y + 2z = 2 and 2x + 2y + z = 4 in the first octant.",
+      "equations": [
+        "x + y + 2z = 2",
+        "2x + 2y + z = 4",
+        "x >= 0",
+        "y >= 0",
+        "z >= 0"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "cartesian",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "0",
+            "upper": "2"
+          },
+          "y": {
+            "lower": "0",
+            "upper": "2 - x"
+          },
+          "z": {
+            "lower": "(2 - x - y) / 2",
+            "upper": "4 - 2*x - 2*y"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "2"
+    },
+    {
+      "question_text": "Find the volume of the finite region bounded by the planes z = x, x + z = 8, z = y, y = 8, and z = 0.",
+      "equations": [
+        "z = x",
+        "x + z = 8",
+        "z = y",
+        "y = 8",
+        "z = 0"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "cartesian",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "z",
+            "upper": "8 - z"
+          },
+          "y": {
+            "lower": "z",
+            "upper": "8"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "4"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "320 / 3"
+    },
+    {
+      "question_text": "Find the volume of the region cut from the solid elliptical cylinder x^2 + 4*y^2 <= 4 by the xy-plane and the plane z = x + 2.",
+      "equations": [
+        "x^2 + 4*y^2 = 4",
+        "z = 0",
+        "z = x + 2"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "cartesian",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "-2",
+            "upper": "2"
+          },
+          "y": {
+            "lower": "-sqrt(4 - x^2) / 2",
+            "upper": "sqrt(4 - x^2) / 2"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "x + 2"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "4 * pi"
+    },
+    {
+      "question_text": "Find the volume of the region bounded in back by the plane x = 0, on the front and sides by the parabolic cylinder x = 1 - y^2, on the top by the paraboloid z = x^2 + y^2, and on the bottom by the xy-plane.",
+      "equations": [
+        "x = 0",
+        "x = 1 - y^2",
+        "z = x^2 + y^2",
+        "z = 0"
+      ],
+      "variables": [
+        "x",
+        "y",
+        "z"
+      ],
+      "coordinate_system": "cartesian",
+      "integral_setup": {
+        "bounds": {
+          "x": {
+            "lower": "0",
+            "upper": "1 - y^2"
+          },
+          "y": {
+            "lower": "-1",
+            "upper": "1"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "x^2 + y^2"
+          }
+        },
+        "integrand": "1"
+      },
+      "volume": "4 / 7"
+    },
+    {
+      "question_text": "Find the spherical coordinate limits and evaluate the integral for the volume of the solid between the sphere rho = cos(phi) and the hemisphere rho = 2 with z >= 0.",
+      "equations": [
+        "rho = cos(phi)",
+        "rho = 2",
+        "z >= 0"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "cos(phi)",
+            "upper": "2"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "31*pi/6"
+    },
+    {
+      "question_text": "Find the spherical coordinate limits and evaluate the integral for the volume of the solid bounded below by the hemisphere rho = 1 with z >= 0 and above by the cardioid of revolution rho = 1 + cos(phi).",
+      "equations": [
+        "rho = 1",
+        "z >= 0",
+        "rho = 1 + cos(phi)"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "1",
+            "upper": "1 + cos(phi)"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "11*pi/6"
+    },
+    {
+      "question_text": "Find the spherical coordinate limits and evaluate the integral for the volume of the solid bounded below by the sphere rho = 2*cos(phi) and above by the cone phi = pi/4.",
+      "equations": [
+        "rho = 2*cos(phi)",
+        "phi = pi/4",
+        "z >= 0"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "2 * cos(phi)"
+          },
+          "phi": {
+            "lower": "pi/4",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "pi/3"
+    },
+    {
+      "question_text": "Find the spherical coordinate limits and evaluate the integral for the volume of the solid bounded below by the xy-plane, on the sides by the sphere rho = 2, and above by the cone phi = pi/3.",
+      "equations": [
+        "z >= 0",
+        "rho = 2",
+        "phi = pi/3"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "2"
+          },
+          "phi": {
+            "lower": "pi/3",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "8*pi/3"
+    },
+    {
+      "question_text": "Express the volume of the region D in the first octant bounded below by the cone phi = pi/4 and above by the sphere rho = 3 as an iterated triple integral in spherical coordinates, then evaluate V.",
+      "equations": [
+        "phi = pi/4",
+        "rho = 3",
+        "x >= 0",
+        "y >= 0",
+        "z >= 0"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "3"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/4"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "pi/2"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "9*pi*(2 - sqrt(2)) / 4"
+    },
+    {
+      "question_text": "Find the volume of the solid between z = 4 - 4*(r^2) and z = (r^2)^2 - 1.",
+      "equations": [
+        "z = 4 - 4*r^2",
+        "z = r^4 - 1"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "r^4 - 1",
+            "upper": "4 - 4*r^2"
+          }
+        },
+        "integrand": "r"
+      },
+      "volume": "8*pi/3"
+    },
+    {
+      "question_text": "Find the volume of the solid between z = 1 - r and z = - (1 - r^2)^(1/2).",
+      "equations": [
+        "z = 1 - r",
+        "z = -sqrt(1 - r^2)"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "-sqrt(1 - r^2)",
+            "upper": "1 - r"
+          }
+        },
+        "integrand": "r"
+      },
+      "volume": "pi"
+    },
+    {
+      "question_text": "Find the volume of the portion of the solid sphere rho <= a that lies between the cones phi = pi/3 and phi = 2*pi/3.",
+      "equations": [
+        "rho <= a",
+        "phi = pi/3",
+        "phi = 2*pi/3"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "a"
+          },
+          "phi": {
+            "lower": "pi/3",
+            "upper": "2*pi/3"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "2*pi*a^3/3"
+    },
+    {
+      "question_text": "Find the volume of the region in the first octant cut from the solid sphere rho <= a by the half-planes theta = 0 and theta = pi/6.",
+      "equations": [
+        "rho <= a",
+        "theta = 0",
+        "theta = pi/6",
+        "phi <= pi/2"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "0",
+            "upper": "a"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/2"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "pi/6"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "pi*a^3/18"
+    },
+    {
+      "question_text": "Find the volume of the smaller region of the sphere rho <= 2 cut by the plane z = 1.",
+      "equations": [
+        "rho <= 2",
+        "z = 1"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "sec(phi)",
+            "upper": "2"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/3"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "5*pi/3"
+    },
+    {
+      "question_text": "Find the volume of the solid enclosed by the cone z = sqrt(x^2 + y^2) between the planes z = 1 and z = 2.",
+      "equations": [
+        "z = sqrt(x^2 + y^2)",
+        "z = 1",
+        "z = 2"
+      ],
+      "variables": [
+        "rho",
+        "phi",
+        "theta"
+      ],
+      "coordinate_system": "spherical",
+      "integral_setup": {
+        "bounds": {
+          "rho": {
+            "lower": "sec(phi)",
+            "upper": "2 * sec(phi)"
+          },
+          "phi": {
+            "lower": "0",
+            "upper": "pi/4"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          }
+        },
+        "integrand": "rho^2 * sin(phi)"
+      },
+      "volume": "7*pi/3"
+    },
+    {
+      "question_text": "Find the volume of the region bounded below by z = 0, laterally by x^2 + y^2 = 1, and above by z = x^2 + y^2.",
+      "equations": [
+        "z = 0",
+        "x^2 + y^2 = 1",
+        "z = x^2 + y^2"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "0",
+            "upper": "r^2"
+          }
+        },
+        "integrand": "r"
+      },
+      "volume": "pi/2"
+    },
+    {
+      "question_text": "Find the volume of the region bounded below by z = x^2 + y^2, laterally by x^2 + y^2 = 1, and above by z = x^2 + y^2 + 1.",
+      "equations": [
+        "z = x^2 + y^2",
+        "x^2 + y^2 = 1",
+        "z = x^2 + y^2 + 1"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "0",
+            "upper": "1"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "r^2",
+            "upper": "r^2 + 1"
+          }
+        },
+        "integrand": "r"
+      },
+      "volume": "pi"
+    },
+    {
+      "question_text": "Find the volume of the solid cut from the cylinder 1 <= x^2 + y^2 <= 2 by the cones z = sqrt(x^2 + y^2) and z = - sqrt(x^2 + y^2).",
+      "equations": [
+        "1 <= x^2 + y^2 <= 2",
+        "z = sqrt(x^2 + y^2)",
+        "z = - sqrt(x^2 + y^2)"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "1",
+            "upper": "sqrt(2)"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "-r",
+            "upper": "r"
+          }
+        },
+        "integrand": "r"
+      },
+      "volume": "4*pi*(2*sqrt(2) - 1)/3"
+    },
+    {
+      "question_text": "Find the volume of the region inside the sphere x^2 + y^2 + z^2 = 2 and outside the cylinder x^2 + y^2 = 1.",
+      "equations": [
+        "x^2 + y^2 + z^2 = 2",
+        "x^2 + y^2 = 1"
+      ],
+      "variables": [
+        "r",
+        "theta",
+        "z"
+      ],
+      "coordinate_system": "cylindrical",
+      "integral_setup": {
+        "bounds": {
+          "r": {
+            "lower": "1",
+            "upper": "sqrt(2)"
+          },
+          "theta": {
+            "lower": "0",
+            "upper": "2*pi"
+          },
+          "z": {
+            "lower": "-sqrt(2 - r^2)",
+            "upper": "sqrt(2 - r^2)"
+          }
+        },
+        "integrand": "r"
+      },
+      "volume": "4*pi/3"
+    }
+  ]

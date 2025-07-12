@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Axis AI</title>
+
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: false,  // Important for Replit
+        packages: {'[+]': ['ams']}
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      chtml: {
+        scale: 1.1,
+        minScale: 0.8
+      }
+    };
+  </script>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result {
+      margin-top: 30px;
+    }
+
+    .result h3 {
+      color: #27ae60;
+    }
+
+    .result ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .result li {
+      background: #f0f8ff;
+      padding: 10px;
+      margin: 5px 0;
+      border-left: 5px solid #3498db;
+      border-radius: 5px;
+    }
+
+    /* Math-specific styles */
+    .math-container {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      overflow-x: auto;
+    }
+    
+    .math-display {
+      font-size: 1.3em;
+      text-align: left;
+      padding: 15px;
+    }
+    
+    .equation {
+      color: #d63384;
+    }
+
+    .MathJax {
+      color: #d63384 !important;
+    }
+
+    .MathJax_Display {
+      margin: 1em 0 !important;
+    }
+
+    /* Plot container */
+    .plot-container {
+      margin: 30px 0;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Axis AI</h1>
+    <form method="POST">
+        {% if error_message %}
+        <div class="error-message" style="color: #d63384; padding: 15px; background: #f8f9fa; border-radius: 5px; margin: 15px 0;">
+            ⚠️ {{ error_message }}
+        </div>
+        {% endif %}
+      <label for="question">Enter your question:</label>
+      <input type="text" id="question" name="question" value="{% if question %}{{ question }}{% endif %}" required>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+      <div class="result">
+        <h3>📌 Best Coordinate System: {{ prediction }}</h3>
+        <h4>🔢 Confidence Scores:</h4>
+        <ul style="text-align: left">
+          {% for label, score in confidence_scores.items() %}
+           <li style="text-align: left"><strong>{{ label }}</strong>: {{ '%.1f' % (score * 100) }}%</li>
+          {% endfor %}
+        </ul>
+
+        {% if equations %}
+        <div class="math-container" style="text-align: left">
+            <h3>📝 Extracted Equations:</h3>
+            <ul style="text-align: left; padding-left: 0px; list-style-position: inside">
+            {% for eq in equations %}
+                <li style="text-align: left; margin: 10px 0; display: block">
+                \(\displaystyle {{ eq.replace('^', '^').replace('**', '^') }}\)
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if integral_setup %}
+        <h3>🧮 Predicted Integral Setup:</h3>
+        <div class="math-container">
+            <h4>Bounds:</h4>
+            <ul style="text-align: left">
+                {% for var, bounds in integral_setup.bounds.items() %}
+                    <li style="text-align: left">
+                        \({{ var }} \in \left[ {{ bounds.lower }}, {{ bounds.upper }} \right]\)
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <h4>Integrand:</h4>
+        <div class="math-container" style="text-align: left; padding-left: 20px">
+            {% if prediction == 'spherical' %}
+                \(\displaystyle \rho^2 \sin(\phi)\)
+            {% elif prediction == 'cylindrical' %}
+                \(\displaystyle r\)
+            {% elif prediction == 'rectangular' %}
+                \(\displaystyle 1\)
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% if volume_latex %}
+        <div class="math-container" style="text-align: left; padding-left: 20px;">
+            <h4>📐 Estimated Volume:</h4>
+            <div class="math-display">
+            \(\displaystyle {{ volume_latex }}\)
+            </div>
+        </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if plot_html %}
+      <div class="plot-container">
+        {{ plot_html | safe }}
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- MathJax Rendering Script -->
+  <script>
+    // Function to render math equations
+    function renderMath() {
+      if (window.MathJax) {
+        MathJax.typesetClear();
+        MathJax.typesetPromise().catch(err => {
+          console.log('MathJax typeset error:', err);
+        });
+      }
+    }
+
+    // Initial render when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      renderMath();
+      
+      // Add event listener for form submission
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', function() {
+          // Small delay to allow Flask to process before re-rendering
+          setTimeout(renderMath, 300);
+        });
+      }
+    });
+
+    // Fallback in case MathJax hasn't loaded yet
+    if (typeof MathJax === 'undefined') {
+      console.log('MathJax not loaded yet - will retry in 1 second');
+      setTimeout(renderMath, 1000);
+    }
+  </script>
+</body>
+</html>

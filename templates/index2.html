@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Axis AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TailwindCSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']],
+                packages: { '[+]': ['ams'] }
+            },
+            chtml: {
+                scale: 1.1,
+                minScale: 0.8,
+                mtextInheritFont: true
+            }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://cdn.leonardo.ai/users/c06b62ec-2098-4934-954b-7f237ca65f69/generations/9f51ace0-642e-48a0-bb1f-379373c73699/segments/1:4:1/Flux_Dev_black_space_theme_with_white_small_stars_and_make_4_b_0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .cursor {
+            border-right: 2px solid currentColor;
+            animation: blink 0.7s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Enhanced contrast for text elements */
+        .text-content {
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-bg {
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .result-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .math-render {
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center">
+    <div class="max-w-4xl w-full card-bg rounded-3xl p-8 shadow-2xl animate__animated animate__fadeInUp">
+        <div class="text-center space-y-4 mb-10">
+            <h1 id="typed-text" class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400"></h1>
+            <p id="typed-desc" class="text-lg text-white/90"></p>
+        </div>
+
+        <div class="result-card p-8 rounded-2xl shadow-md">
+            <form method="POST" class="space-y-6">
+                {% if error_message %}
+                <div class="text-red-300 p-4 bg-red-900/30 rounded-md border border-red-400/50">
+                    ⚠️ {{ error_message }}
+                </div>
+                {% endif %}
+
+                <div>
+                    <label for="question" class="block text-lg font-semibold text-white/90 mb-3">Enter your question:</label>
+                    <input type="text" id="question" name="question" value="{% if question %}{{ question }}{% endif %}" required
+                           class="w-full mt-3 p-4 rounded-xl border border-gray-400/30 focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white/10 text-black placeholder-white/50 transition"
+                           placeholder="e.g., Find the volume bounded by x² + y² = 9 and z = 4" />
+                </div>
+
+                <button type="submit"
+                        class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-xl font-semibold uppercase tracking-wider shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all hover:brightness-110">
+                    Predict Coordinate System
+                </button>
+            </form>
+
+            {% if prediction %}
+            <div class="mt-10 animate__animated animate__zoomIn text-content">
+                <div class="text-emerald-300 text-2xl font-bold mb-6 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                    <span>Best Coordinate System: <span class="capitalize">{{ prediction }}</span></span>
+                </div>
+
+                <div class="result-card p-6 rounded-xl mb-6">
+                    <h4 class="text-indigo-300 font-semibold mb-3 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        Confidence Scores
+                    </h4>
+                    <ul class="space-y-3">
+                        {% for label, score in confidence_scores.items() %}
+                        <li class="flex justify-between items-center bg-white/10 p-3 rounded-lg border border-white/5">
+                            <span class="capitalize text-white/90">{{ label }}</span>
+                            <div class="flex items-center gap-3">
+                                <div class="w-32 bg-gray-700/50 rounded-full h-2.5">
+                                    <div class="bg-gradient-to-r from-indigo-400 to-purple-400 h-2.5 rounded-full"
+                                         style="width: {{ '%.1f' % (score * 100) }}%"></div>
+                                </div>
+                                <span class="font-mono text-white">{{ '%.1f' % (score * 100) }}%</span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                {% if equations %}
+                <div class="result-card p-6 rounded-xl mb-6">
+                    <h3 class="text-purple-300 font-semibold mb-3 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Extracted Equations
+                    </h3>
+                    <div class="space-y-3 math-render">
+                        {% for eq in equations %}
+                        <div>\(\displaystyle {{ eq.replace('^', '^').replace('**', '^') }}\)</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if integral_setup %}
+                <div class="result-card p-6 rounded-xl mb-6">
+                    <h3 class="text-purple-300 font-semibold mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                        Predicted Integral Setup
+                    </h3>
+                    <div class="space-y-4 math-render">
+                        <div>
+                            <h4 class="font-semibold text-indigo-300 mb-2">Bounds:</h4>
+                            <ul class="space-y-2 pl-4">
+                                {% for var, bounds in integral_setup.bounds.items() %}
+                                <li>\({{ var }} \in \left[ {{ bounds.lower }}, {{ bounds.upper }} \right]\)</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold text-indigo-300 mb-2">Integrand:</h4>
+                            <div class="pl-4">
+                                {% if prediction == 'spherical' %}
+                                \(\displaystyle \rho^2 \sin(\phi)\)
+                                {% elif prediction == 'cylindrical' %}
+                                \(\displaystyle r\)
+                                {% elif prediction == 'rectangular' %}
+                                \(\displaystyle 1\)
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if volume_latex %}
+                <div class="result-card p-6 rounded-xl">
+                    <h4 class="text-emerald-300 font-semibold mb-3 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                        Estimated Volume
+                    </h4>
+                    <div class="math-render p-4">
+                        \(\displaystyle {{ volume_latex }}\)
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if plot_html %}
+            <div class="plot-container mt-6 p-4 result-card rounded-xl">
+                {{ plot_html | safe }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textEl = document.getElementById('typed-text');
+            const descEl = document.getElementById('typed-desc');
+            const title = 'AxisAI';
+            const description = 'Guiding you to the best coordinate system for your integrals.';
+
+            if (textEl && descEl) {
+                let charIndex = 0;
+                function typeTitle() {
+                    if (charIndex < title.length) {
+                        textEl.textContent += title.charAt(charIndex);
+                        textEl.classList.add('cursor');
+                        charIndex++;
+                        setTimeout(typeTitle, 150);
+                    } else {
+                        textEl.classList.remove('cursor');
+                        setTimeout(typeDesc, 400);
+                    }
+                }
+
+                let descIndex = 0;
+                function typeDesc() {
+                    if (descIndex < description.length) {
+                        descEl.textContent += description.charAt(descIndex);
+                        descEl.classList.add('cursor');
+                        descIndex++;
+                        setTimeout(typeDesc, 40);
+                    } else {
+                        descEl.classList.remove('cursor');
+                    }
+                }
+                typeTitle();
+            }
+
+            // Force MathJax to render with white text
+            if (window.MathJax) {
+                MathJax.typesetClear();
+                MathJax.typesetPromise().then(() => {
+                    document.querySelectorAll('.MathJax').forEach(el => {
+                        el.style.color = 'white';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
